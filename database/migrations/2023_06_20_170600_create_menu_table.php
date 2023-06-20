@@ -20,9 +20,10 @@ class CreateMenuTable extends Migration
             $table->string('img');
             $table->double('harga');
             $table->integer('stok');
-            $table->unsignedBigInteger('kategori_id');
-            
+            $table->unsignedBigInteger('kategori_menu_id');
+
             $table->timestamps();
+            $table->foreign('kategori_menu_id')->references('id')->on('kategori_menu')->onDelete('cascade');
         });
     }
 
