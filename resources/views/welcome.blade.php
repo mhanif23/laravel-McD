@@ -141,58 +141,18 @@
                         <div class="tab-pane fade show active single-member" id="Special" role="tabpanel"
                             aria-labelledby="Special-tab">
                             <div class="row">
+                                @foreach ($menu as $item)
                                 <div class="col-sm-6 col-lg-6">
                                     <div class="single_food_item media">
-                                        <img src="img/food_menu/single_food_1.png" class="mr-3" alt="...">
+                                        <img src="{{ Storage::url('menu/' . $item->img) }}" style="min-height: 120px; max-width: 160px; object-fit: cover;" class="mr-3" alt="...">
                                         <div class="media-body align-self-center">
-                                            <h3>Pork Sandwich</h3>
-                                            <p>They're wherein heaven seed hath nothing</p>
-                                            <h5>$40.00</h5>
-                                        </div>
-                                    </div>
-                                    <div class="single_food_item media">
-                                        <img src="img/food_menu/single_food_2.png" class="mr-3" alt="...">
-                                        <div class="media-body align-self-center">
-                                            <h3>Roasted Marrow</h3>
-                                            <p>They're wherein heaven seed hath nothing</p>
-                                            <h5>$40.00</h5>
-                                        </div>
-                                    </div>
-                                    <div class="single_food_item media">
-                                        <img src="img/food_menu/single_food_3.png" class="mr-3" alt="...">
-                                        <div class="media-body align-self-center">
-                                            <h3>Summer Cooking</h3>
-                                            <p>They're wherein heaven seed hath nothing</p>
-                                            <h5>$40.00</h5>
+                                            <h3>{{ $item->nama_menu }}</h3>
+                                            <p>{{ $item->deskripsi }}</p>
+                                            <h5>Rp. {{ number_format($item->harga, 2, ",", ".") }}</h5>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-6 col-lg-6">
-                                    <div class="single_food_item media">
-                                        <img src="img/food_menu/single_food_4.png" class="mr-3" alt="...">
-                                        <div class="media-body align-self-center">
-                                            <h3>Easter Delight</h3>
-                                            <p>They're wherein heaven seed hath nothing</p>
-                                            <h5>$40.00</h5>
-                                        </div>
-                                    </div>
-                                    <div class="single_food_item media">
-                                        <img src="img/food_menu/single_food_5.png" class="mr-3" alt="...">
-                                        <div class="media-body align-self-center">
-                                            <h3>Tiener Schnitze</h3>
-                                            <p>They're wherein heaven seed hath nothing</p>
-                                            <h5>$40.00</h5>
-                                        </div>
-                                    </div>
-                                    <div class="single_food_item media">
-                                        <img src="img/food_menu/single_food_6.png" class="mr-3" alt="...">
-                                        <div class="media-body align-self-center">
-                                            <h3>Chicken Roast</h3>
-                                            <p>They're wherein heaven seed hath nothing</p>
-                                            <h5>$40.00</h5>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                         <div class="tab-pane fade single-member" id="Breakfast" role="tabpanel"
