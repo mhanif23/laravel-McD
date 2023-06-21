@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Dashboard</title>
+    <title>Dingo Admin</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -41,7 +41,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Restoran</div>
+                <div class="sidebar-brand-text mx-3">Dingo</div>
             </a>
 
             <!-- Divider -->
@@ -55,21 +55,24 @@
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider">
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Data
-            </div>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ url('/admin/menu') }}">
-                    <i class="fas fa-fw fa-utensils"></i>
-                    <span>Menu</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ url('/admin/meja') }}">
-                    <i class="fas fa-fw fa-utensils"></i>
-                    <span>Meja</span></a>
-            </li>
+            
+            @if (Auth::user()->role_name != "guest")
+                <hr class="sidebar-divider">
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Data
+                </div>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url('/admin/menu') }}">
+                        <i class="fas fa-fw fa-utensils"></i>
+                        <span>Menu</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url('/admin/meja') }}">
+                        <i class="fas fa-fw fa-utensils"></i>
+                        <span>Meja</span></a>
+                </li>
+            @endif
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -106,7 +109,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
                                 <img class="img-profile rounded-circle"
                                     src="{{asset('admin/img/undraw_profile.svg')}}">
                             </a>

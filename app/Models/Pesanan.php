@@ -5,14 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Menu extends Model
+class Pesanan extends Model
 {
     use HasFactory;
-    protected $table = "menu";
+    protected $table = "pesanan";
     protected $guarded = ["id"];
-
-    public function kategoriMenu()
-    {
-        return $this->belongsTo(KategoriMenu::class);
-    }
 }
