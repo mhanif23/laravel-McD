@@ -60,6 +60,14 @@
                     <input type="text" required class="form-control" id="nomor_meja" name="nomor_meja" placeholder="Masukan Nomor Meja...">
                 </div>
             </div>
+            <div class="form-group mt-6">
+              <div class="form-check">
+                <input class="form-check-input" name="is_available" type="checkbox" id="is_available" checked>
+                <label class="form-check-label" for="is_available">
+                  Is Available
+                </label>
+              </div>
+            </div>
           </div>
           <div class="modal-footer">
               <button type="submit" class="btn btn-primary">Unggah</button>
@@ -87,6 +95,14 @@
                         <input type="text" required class="form-control" id="nomor_meja_update" name="nomor_meja" placeholder="Masukan Nomor Meja...">
                     </div>
                 </div>
+                <div class="form-group mt-6">
+                  <div class="form-check">
+                    <input class="form-check-input" name="is_available" type="checkbox" value="" id="is_available_update" checked>
+                    <label class="form-check-label" for="is_available_update">
+                      Is Available
+                    </label>
+                  </div>
+                </div>
               </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Perbarui</button>
@@ -109,7 +125,7 @@
                 {data   : 'DT_RowIndex', name: 'DT_RowIndex', orderlable: false, searchable: false},
                 {data   : 'nomor_meja', name: 'nomor_meja'},
                 {data   : 'is_available', name: 'is_available', render: function(data){
-                    return data.is_available ? "Tersedia" : "Tidak Tersedia"
+                    return data ? "Tersedia" : "Tidak Tersedia"
                 }},
                 {data   : 'aksi', name: 'aksi', className:'text-center', orderlable: false, searchable: false},
             ],
@@ -120,6 +136,11 @@
         $.get("{{url('admin/meja/edit')}}" + "/" +id, function(data){
             $('#updateForm').attr('action', "{{ url('admin/meja/update') }}"+"/"+id);
             $('#nomor_meja_update').val(data.nomor_meja);
+            if(data.is_available) {
+              $('#is_available_update').attr("checked", true);
+            } else {
+              $('#is_available_update').attr("checked", false);
+            }
             $('#editModal').modal('show');
         });
     }

@@ -47,7 +47,7 @@ class MejaController extends Controller
 
         $input = new Meja;
         $input->nomor_meja = $request->nomor_meja;
-        $input->is_available = true;
+        $input->is_available = $request->is_available == "on" ? true : false;
 
         if($input->save()){
             return redirect()->route('admin.meja')->with('success', 'Data berhasil disimpan');
@@ -74,7 +74,7 @@ class MejaController extends Controller
 
         $input = Meja::find($id);
         $input->nomor_meja = $request->nomor_meja;
-        $input->is_available = true;
+        $input->is_available = $request->is_available == "on" ? true : false;
 
         if($input->save()){
             return redirect()->route('admin.meja')->with('success', 'Data berhasil diperbaharui');
