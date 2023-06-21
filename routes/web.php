@@ -26,7 +26,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('admin')->group(function () {
         Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
-
+        Route::get('/dashboard/ajax', [App\Http\Controllers\AdminController::class, 'ajax'])->name('admin.dashboard.ajax');
+        
         Route::prefix('menu')->group(function(){
             Route::get('/', [App\Http\Controllers\MenuController::class, 'index'])->name('admin.menu');
             Route::get('/ajax', [App\Http\Controllers\MenuController::class, 'ajax'])->name('admin.menu.ajax');
