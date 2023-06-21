@@ -108,6 +108,9 @@
             columns     : [
                 {data   : 'DT_RowIndex', name: 'DT_RowIndex', orderlable: false, searchable: false},
                 {data   : 'nomor_meja', name: 'nomor_meja'},
+                {data   : 'is_available', name: 'is_available', render: function(data){
+                    return data.is_available ? "Tersedia" : "Tidak Tersedia"
+                }},
                 {data   : 'aksi', name: 'aksi', className:'text-center', orderlable: false, searchable: false},
             ],
         });
