@@ -57,7 +57,7 @@
             <!-- Divider -->
             
             @if (Auth::user()->role_name != "guest")
-            <hr class="sidebar-divider">
+                <hr class="sidebar-divider">
                 <!-- Heading -->
                 <div class="sidebar-heading">
                     Data
@@ -66,6 +66,11 @@
                     <a class="nav-link" href="{{ url('/admin/menu') }}">
                         <i class="fas fa-fw fa-utensils"></i>
                         <span>Menu</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url('/admin/meja') }}">
+                        <i class="fas fa-fw fa-utensils"></i>
+                        <span>Meja</span></a>
                 </li>
             @endif
 
