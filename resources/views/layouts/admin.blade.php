@@ -65,6 +65,11 @@
                     <i class="fas fa-fw fa-utensils"></i>
                     <span>Menu</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ url('/admin/meja') }}">
+                    <i class="fas fa-fw fa-utensils"></i>
+                    <span>Meja</span></a>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
