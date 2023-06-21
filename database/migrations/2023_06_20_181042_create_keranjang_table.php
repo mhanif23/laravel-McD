@@ -19,6 +19,7 @@ class CreateKeranjangTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->double("total_harga");
             $table->integer("quantity");
+            $table->string("status")->default("PENDING");
 
             $table->timestamps();
             $table->foreign('menu_id')->references('id')->on('menu')->onDelete('cascade');

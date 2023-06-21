@@ -19,10 +19,10 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Route::middleware(['auth'])->group(function () {
     Route::post('/store-keranjang/{menu_id}', [App\Http\Controllers\HomeController::class, 'storeKeranjang'])->name('store-keranjang');
+    Route::post('/simpan-pesanan', [App\Http\Controllers\HomeController::class, 'simpanPesanan'])->name('simpan-pesanan');
 
-    Route::prefix('guest')->group(function () {
-        Route::get('/keranjang', [App\Http\Controllers\HomeController::class, 'keranjang'])->name('guest.keranjang');
-    });
+    Route::get('/keranjang', [App\Http\Controllers\HomeController::class, 'keranjang'])->name('guest.keranjang');
+    Route::delete('/keranjang/delete/{id}', [App\Http\Controllers\HomeController::class, 'hapusKeranjang'])->name('delete-keranjang');
 
     Route::prefix('admin')->group(function () {
         Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
