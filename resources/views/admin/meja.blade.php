@@ -97,7 +97,7 @@
                 </div>
                 <div class="form-group mt-6">
                   <div class="form-check">
-                    <input class="form-check-input" name="is_available" type="checkbox" value="" id="is_available_update" checked>
+                    <input class="form-check-input" name="is_available" type="checkbox" id="is_available_update" checked>
                     <label class="form-check-label" for="is_available_update">
                       Is Available
                     </label>
