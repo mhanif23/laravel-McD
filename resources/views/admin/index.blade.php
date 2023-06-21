@@ -55,12 +55,12 @@
                         </div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $keranjang->total_done / $keranjang->total * 100 }}%</div>
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $keranjang->total ? $keranjang->total_done / $keranjang->total * 100 : 0 }}%</div>
                             </div>
                             <div class="col">
                                 <div class="progress progress-sm mr-2">
                                     <div class="progress-bar bg-info" role="progressbar"
-                                        style="width: {{ $keranjang->total_done / $keranjang->total * 100 }}%" aria-valuenow="{{ $keranjang->total_done / $keranjang->total * 100 }}" aria-valuemin="0"
+                                        style="width: {{ $keranjang->total ? $keranjang->total_done / $keranjang->total * 100 : 0 }}%" aria-valuenow="{{ $keranjang->total ? $keranjang->total_done / $keranjang->total * 100 : 0 }}" aria-valuemin="0"
                                         aria-valuemax="100"></div>
                                 </div>
                             </div>
