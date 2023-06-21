@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Menu;
+use App\Models\KategoriMenu;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\DataTables;
@@ -11,7 +12,8 @@ use Yajra\DataTables\DataTables;
 class MenuController extends Controller
 {
     public function index(){
-        return view('admin.menu');
+        $kategoriMenu = KategoriMenu::all();
+        return view('admin.menu', compact("kategoriMenu"));
     }
 
     public function ajax(){
@@ -39,6 +41,7 @@ class MenuController extends Controller
         $validator = Validator::make($request->all(), [
             'nama_menu' => 'required',
             'deskripsi' => 'required',
+            'kategori_menu_id' => 'required',
             'harga' => 'required',
             'stok' => 'required|integer',
             'img'   => 'required|image|max:2048'
@@ -53,6 +56,7 @@ class MenuController extends Controller
         $input->nama_menu = $request->nama_menu;
         $input->deskripsi = $request->deskripsi;
         $input->harga = $request->harga;
+        $input->kategori_menu_id = $request->kategori_menu_id;
         $input->stok = $request->stok;
 
         if($request->hasFile('img')){
@@ -80,6 +84,7 @@ class MenuController extends Controller
         $validator = Validator::make($request->all(), [
             'nama_menu' => 'required',
             'deskripsi' => 'required',
+            'kategori_menu_id' => 'required',
             'harga' => 'required',
             'stok' => 'required',
             'img'   => 'image|max:2048'
@@ -93,6 +98,7 @@ class MenuController extends Controller
         $input = Menu::find($id);
         $input->nama_menu = $request->nama_menu;
         $input->deskripsi = $request->deskripsi;
+        $input->kategori_menu_id = $request->kategori_menu_id;
         $input->harga = $request->harga;
         $input->stok = $request->stok;
 

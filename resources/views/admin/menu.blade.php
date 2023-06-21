@@ -63,6 +63,17 @@
                 <center><input accept="image/*" type="file" class="form-control" name="img" id="image" required><center>
               </div>
             <div class="form-group mt-6">
+                <label for="nama" class="control-label">Kategori Menu:</label>
+                <div class="mt-2">
+                  <select name="kategori_menu_id" class="form-control" required id="kategori_menu_id">
+                    <option selected value="" disabled>Pilih Kategori Menu</option>
+                    @foreach ($kategoriMenu as $item)
+                        <option value="{{ $item->id }}">{{ $item->nama_kategori }}</option>
+                    @endforeach
+                  </select>
+                </div>
+            </div>
+            <div class="form-group mt-6">
                 <label for="nama" class="control-label">Nama Menu:</label>
                 <div class="mt-2">
                     <input type="text" required class="form-control" id="nama_menu" name="nama_menu" placeholder="Masukan Nama Menu...">
@@ -112,6 +123,17 @@
                   <br>
                   <center><input accept="image/*" type="file" name="img" id="imageUpdate" class="form-control"><center>
                 </div>
+                <div class="form-group mt-6">
+                  <label for="nama" class="control-label">Kategori Menu:</label>
+                  <div class="mt-2">
+                    <select name="kategori_menu_id" class="form-control" required id="kategori_menu_id_update">
+                      <option selected value="" disabled>Pilih Kategori Menu</option>
+                      @foreach ($kategoriMenu as $item)
+                          <option value="{{ $item->id }}">{{ $item->nama_kategori }}</option>
+                      @endforeach
+                    </select>
+                  </div>
+              </div>
                 <div class="form-group mt-6">
                     <label for="nama" class="control-label">Nama Menu:</label>
                     <div class="mt-2">
@@ -175,6 +197,7 @@
             $('#nama_menu_update').val(data.nama_menu);
             $('#deskripsi_update').val(data.deskripsi);
             $('#harga_update').val(data.harga);
+            $('#kategori_menu_id_update').val(data.kategori_menu_id);
             $('#stok_update').val(data.stok);
             $('#editModal').modal('show');
         });

@@ -16,12 +16,13 @@ class CreateKeranjangTable extends Migration
         Schema::create('keranjang', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('menu_id');
-            $table->unsignedBigInteger('guest_id');
+            $table->unsignedBigInteger('user_id');
             $table->double("total_harga");
+            $table->integer("quantity");
 
             $table->timestamps();
             $table->foreign('menu_id')->references('id')->on('menu')->onDelete('cascade');
-            $table->foreign('guest_id')->references('id')->on('guest')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

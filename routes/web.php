@@ -18,6 +18,12 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth'])->group(function () {
+    Route::post('/store-keranjang/{menu_id}', [App\Http\Controllers\HomeController::class, 'storeKeranjang'])->name('store-keranjang');
+
+    Route::prefix('guest')->group(function () {
+        Route::get('/keranjang', [App\Http\Controllers\HomeController::class, 'keranjang'])->name('guest.keranjang');
+    });
+
     Route::prefix('admin')->group(function () {
         Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
 
