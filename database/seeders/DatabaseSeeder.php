@@ -14,5 +14,16 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        \App\Models\User::create([
+            "name" => "Admin",
+            "role_name" => "admin",
+            "email" => "mhanif23@gmail.com",
+            "password" => bcrypt("adminhanif"),
+        ]);
+
+        $this->call([
+            KategoriMenuSeeder::class,
+            GuestSeeder::class,
+        ]);
     }
 }
